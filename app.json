@@ -9,8 +9,7 @@
       }
     },
     "ios": {
-      "bundleIdentifier": "com.scmurdock.stediapp",
-      "deploymentTarget": "13.0"
+      "bundleIdentifier": "com.scmurdock.stediapp"
     },
     "android": {
       "package": "com.scmurdock.stediapp",
@@ -18,6 +17,16 @@
         "foregroundImage": "./image/icon-img.png",
         "backgroundColor": "#FFFFFF"
       }
-    }
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "deploymentTarget": "13.0"
+          }
+        }
+      ]
+    ]
   }
 }
