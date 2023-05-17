@@ -1,21 +1,13 @@
 import React from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
+import {StyleSheet, View, Text, Button, Alert} from 'react-native';
 
 export default function Login(props){
     return(
         <View style={styles.login}>
-            <Text>This is the Login Screen</Text>
-            <Button title="Log In" onPress={()=>props.setUserLoggedIn(true)}></Button>
-            <Text>Hello Ryan</Text>
-            <Button title="ryanButton" onPress={()=>console.log("Hello Ryan")}></Button>
+
+            <Text>Hello Brent</Text>
+            <Button title="brentButton" onPress={()=>Alert.alert("Hello Brent")}></Button>
         
-
-            <Text>Hello Samantha</Text>
-            <Button title="SamanthaButton" onPress={()=>console.log("Hello Samantha")}></Button>
-      
-
-            <Text>Brian's Button</Text>
-            <Button title="BrianButton" onPress= {console.log("Hello Brian")}></Button>
 
         </View>
     )
