@@ -5,26 +5,27 @@ export default function Login(props){
     return(
         <View style={styles.login}>
             <Text>This is the login screen</Text>
-            <Button title="Log In" onPress={()=>{
+            
+            <Button title="Garret Button" onPress={()=>{
                 Alert.alert("Hello Garret");
             }}></Button>
 
-            <Button title="Log In" onPress={()=>{
+            <Button title="Americo Button" onPress={()=>{
                 Alert.alert("Hello Americo");
             }}></Button>
 
-            <Button title="Log In" onPress={()=>{
+            <Button title="Harrison Button" onPress={()=>{
                 Alert.alert("Hello Harrison");
             }}></Button>
 
-            <Button title="Log In" onPress={()=>{
+            <Button title="Clark Button" onPress={()=>{
                 Alert.alert("Hello Clark");
             }}></Button>
            
-            <Button title="Log In" onPress={()=>{
+            <Button title="Cameron Button" onPress={()=>{
                 Alert.alert("Hello Cameron");
             }}></Button>
-            
+
         </View>
 
     );
