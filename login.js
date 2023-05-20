@@ -9,6 +9,7 @@ export default function Login(props){
             <Button title="Log In" onPress={()=>props.setUserLoggedIn(true)}></Button>
             <Text>Hello Leah</Text>
             <Button title="LeahButton" onPress={()=>console.log("Hello Leah")}></Button>
+            <Button title="CorbanButton" onPress={()=>console.log("Hello Corban")}></Button>
         </View>
 
     );
