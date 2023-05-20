@@ -14,6 +14,9 @@ export default function Login(props){
             <Text>Hello Joshua</Text>
             <Button title="joshuaButton" onPress={()=>Alert.alert("Hello Joshua")}></Button>
 
+            <Text>Hello Austin</Text>
+            <Button title="austinButton" onPress={()=>Alert.alert("Hello Austin")}></Button>
+
         </View>
     )
     
