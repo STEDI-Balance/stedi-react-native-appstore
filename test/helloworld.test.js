@@ -5,5 +5,5 @@ it("Hello World", ()=>{
 
     const hello = sayHello();
 
-    assert.equal(hello,"hello Luke");
+    assert.equal(hello,"hello Luke!");
 });
