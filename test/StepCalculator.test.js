@@ -1,4 +1,4 @@
-import getSpikesFromAccelerometer from '../utils/StepCalculator';
+import getSpikesFromAccelerometer from '../utils/StepCalculator.js';
 
 
 it ("Should Show 60 Steps Taken", ()=>{

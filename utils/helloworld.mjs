@@ -1,5 +1,5 @@
 const sayHello=()=>{
-    return "hello Luke!";
+    return "Hello";
 }
 
 export default sayHello;
