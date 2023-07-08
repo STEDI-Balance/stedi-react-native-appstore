@@ -7,7 +7,7 @@ export default function Login(props) {
   const handleButtonPressLuke = () => {
     setButtonText((prevButtonText) => {
       if (prevButtonText === 'Log In') {
-        return 'Hello Luke';
+        return 'Hello Luke!';
       } else {
         return 'Log In';
       }
@@ -17,7 +17,7 @@ export default function Login(props) {
   const handleButtonPressBob = () => {
     setButtonText((prevButtonText) => {
       if (prevButtonText === 'Log In') {
-        return 'Hello Bob';
+        return 'Hello Bob!';
       } else {
         return 'Log In';
       }
@@ -27,7 +27,7 @@ export default function Login(props) {
   const handleButtonPressJohn = () => {
     setButtonText((prevButtonText) => {
       if (prevButtonText === 'Log In') {
-        return 'Hello John';
+        return 'Hello John!';
       } else {
         return 'Log In';
       }
