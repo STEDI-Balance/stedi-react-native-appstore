@@ -127,12 +127,12 @@ const Login = ({loggedInState, loggedInStates,setLoggedInState})=>{
             placeholderTextColor='#818181' 
             backgroundColor='#e6f0d5'
             placeholder='Password'   
-            keyboardType='numeric'>
+            secureTextEntry={true}>
           </TextInput>
           <TouchableOpacity
               style={styles.loginButton}
               onPress={async ()=>{
-                console.log(phoneNumber+' Button was pressed')
+                
     
                 const loginResponse= await fetch(
                   'https://dev.stedi.me/login',
