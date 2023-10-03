@@ -375,7 +375,7 @@ elevation: 4}}>
                 style={styles.button2}>
                 <Text>close</Text>
               </TouchableOpacity>
-              <Text style={{ textAlign: 'center', color: '#0000EE' }} onPress={() => Linking.openURL(url)}>More info</Text>
+              <Text style={{ textAlign: 'center', color: '#0000EE' }} onPress={() => Linking.openURL("https://www.stedibalance.com/understand-and-strengthen-your-balance/")}>More info</Text>
             </CardContent>
           </Card>
         </View>
