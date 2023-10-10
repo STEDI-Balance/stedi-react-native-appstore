@@ -7,11 +7,8 @@ const Login = ({loggedInState, loggedInStates,setLoggedInState})=>{
 
       const navigation = useNavigation();
 
-      const [phoneNumber,setPhoneNumber] = React.useState("");
+      const [userName,setUserName] = React.useState("");
       const [oneTimePassword, setOneTimePassword] = React.useState("");
-
-      // const [isBiometricSupported, setIsBiometricSupported] = React.useState(false);
-      // const [isBiometricEnrolled, setIsBiometricEnrolled] = React.useState(false);
 
  useEffect(()=>{
   if(loggedInState==loggedInStates.LOGGED_IN){
@@ -23,43 +20,23 @@ const Login = ({loggedInState, loggedInStates,setLoggedInState})=>{
     return (
       <View style={styles.allBody}>
         <Text style={styles.title}>Welcome Back</Text>
-            {/* <Text style={styles.paragraph}> {isBiometricSupported ? 'Your device is compatible with Biometrics' 
-        : 'Your device is not compatible with Biometrics'}
-            </Text>        
-            <Text style={styles.paragraph}> {isBiometricEnrolled ? 'You have saved a fingerprint or face' 
-        : 'You have not saved a fingerprint or face'}
-            </Text>            */}
               <TextInput 
-              value={phoneNumber}
-              onChangeText={setPhoneNumber}
+              value={userName}
+              onChangeText={setUserName}
               style={styles.input}
               backgroundColor='#e6f0d5'
               placeholderTextColor='#818181' 
-              placeholder='Cell Phone'>          
+              placeholder='Enter Name Here'>          
                </TextInput>
 
-            {/* <TouchableOpacity
-             style={styles.bioButton}
-              onPress={async () => {  
-                const biometricAuth = await LocalAuthentication.authenticateAsync({
-                      promptMessage: 'Login with Biometrics',
-                      disableDeviceFallback: true,
-                      cancelLabel:"cancel"
-                    });
-              }}
-            >
-            <Text style={{color:'white'}}>Biometric Authentication</Text>
-            </TouchableOpacity> */}
-
-             {/* <Text style={{fontSize:20, marginVertical:30, textAlign:'center', color:'#818181'}}>Or</Text> */}
-
+  
             <TouchableOpacity
                style={styles.sendButton}
               onPress={async ()=>{
-                console.log(phoneNumber+' Button was pressed')
+                console.log(userName +' Button was pressed')
     
                 const sendTextResponse=await fetch(
-                  'https://dev.stedi.me/twofactorlogin/'+phoneNumber,
+                  'https://dev.stedi.me/twofactorlogin/'+userName,
                   {
                     method:'POST',
                     headers:{
@@ -68,14 +45,14 @@ const Login = ({loggedInState, loggedInStates,setLoggedInState})=>{
                   }
                 )
                 const sendTextResponseData = await sendTextResponse.text();
-                if(sendTextResponse.status!=200){//invalid phone number, send them to the signup page
-                  await Alert.alert("Did you type your number correctly? "+phoneNumber);
+                if(sendTextResponse.status!=200){//invalid entry, send them to the signup page
+                  await Alert.alert("Hello " + userName);
                 } else{
                   setLoggedInState(loggedInStates.LOGGING_IN);
                 }
               }}
             >
-              <Text style={{color:'white'}}>Send</Text>      
+              <Text style={{color:'white'}}>Login</Text>      
             </TouchableOpacity>
     
           </View>
@@ -96,7 +73,7 @@ const Login = ({loggedInState, loggedInStates,setLoggedInState})=>{
           <TouchableOpacity
               style={styles.loginButton}
               onPress={async ()=>{
-                console.log(phoneNumber+' Button was pressed')
+                console.log(userName+' Button was pressed')
     
                 const loginResponse=await fetch(
                   'https://dev.stedi.me/twofactorlogin',
@@ -106,7 +83,7 @@ const Login = ({loggedInState, loggedInStates,setLoggedInState})=>{
                      'content-type':'application/text'
                     },
                     body:JSON.stringify({
-                      phoneNumber,
+                      userName,
                       oneTimePassword
                     }
                     )
