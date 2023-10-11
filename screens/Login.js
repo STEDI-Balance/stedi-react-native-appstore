@@ -1,94 +1,47 @@
 import React from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
-
-export default function Login(props){
-    return(
-        <View style={styles.login}>
-            <Text>This is the Login Screen</Text>
-            <Button title="Michael Button" onPress={()=>{alert("Hello Michael")}}></Button>
-            <Button title="Cigi Button" onPress={()=>{alert("Hello Cigi")}}></Button>
-            <Button title="Tadeo Button" onPress={()=>{alert("Hello Tadeo")}}></Button>
-
-        </View>
-
-    );
+function CustomButton( props ) {
+  return (
+    <TouchableOpacity style={styles.button} onPress={props.onPress}>
+      <Text style={styles.buttonText}>{props.name} Button</Text>
+    </TouchableOpacity>
+  );
 }
 
 const styles = StyleSheet.create({
-  container:{
-      alignItems:'center',
-      justifyContent: 'center',
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
-  allBody:{
-  marginTop:150,
-  marginLeft:20,
-  marginRight:20
-  },
-  input: {
-    height: 45,
-    marginTop: 25,
-   //  borderWidth: 1,
+  button: {
+    backgroundColor: "#1B72DF",
     padding: 10,
     borderRadius: 10,
-    marginBottom:15,
+    marginBottom: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    width: 200,
   },
-  margin:{
-    marginTop:100
+  buttonText: {
+    color: "white",
+    fontWeight: "bold",
   },
-  bioButton:{
-   alignItems: 'center',
-   backgroundColor: '#A0CE4E',
-   padding: 10,
-   marginTop: 5,
-   borderRadius:10
-  },
-  sendButton:{
- alignItems: 'center',
- backgroundColor: '#A0CE4E',
- padding: 10,
- marginTop: 8,
- borderRadius:10
-  },
-  loginButton:{
-   alignItems: 'center',
-   backgroundColor: '#A0CE4E',
-   padding: 10,
-   marginTop: 8,
-   borderRadius:10
-  },
-  title:{
-   textAlign:"center",
-   color:'#A0CE4E',
-   fontSize:40, 
-   fontWeight:'bold',
-   marginBottom:35
-  },
-  image: {
-   flex: 1,
-   justifyContent: 'center',
- },     
- tinyLogo: {
-   width: 50,
-   height: 50,
-   marginTop:100,
-   justifyContent:'center'
- },
- paragraph:{
-   textAlign:'center'
- }
-/*const styles = StyleSheet.create({
-    login: {
-        flexDirection: 'row',
-        width: '100%',
-        justifyContent: 'space-between',
-        backgroundColor: 'green',
-        height: '50%',
-        alignItems: 'flex-end',
-        paddingBottom: 5,
-        paddingLeft: 10,
-        paddingRight: 10,
-        
-      },
-})*/
-})
+});
+
+export default function Login( props ) {
+  const handlePress = (name) => {
+    alert(`Hello ${name}!`);
+  };
+  return(
+      <View style={styles.container}>
+          <Text>This is the Login Screen</Text>
+          <CustomButton  name="Michael" onPress={()=> handlePress("Michael") }/>
+          <CustomButton  name="Cigi" onPress={()=> handlePress("Cigi") }/>
+          <CustomButton  name="Tadeo" onPress={()=> handlePress("Tadeo") }/>
+          <CustomButton  name="Miguel" onPress={()=> handlePress("Miguel") }/>
+      </View>
+
+  );
+}
