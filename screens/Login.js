@@ -1,5 +1,3 @@
-// import react libraries
-
 import React, {useEffect} from "react";//react is a javascript library for user interfaces
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from "react-native";
 
@@ -9,16 +7,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // with react-navigation I can change screens from one component to another easily
 import { useNavigation } from '@react-navigation/native';//this is another react hook
 
-// Login is a component name and it is the same name as the javascript file it resides in
-// There are 2 kinds of components: class-based, and functional components
-// if the component name doesn't say class before it, then it's functional (like below)
-
-//When passing parameters to a javascript function you can pass an object or plain parameter
-//Curly braces mean you're passing an object and the fields inside belong to that object
-//Plain parameters are position based which means you have to send them in the right order
-
-
-// React components call their parameters "props" short for "properties"
 const Login = ({loggedInState, loggedInStates,setLoggedInState})=>{
 // I have 3 props in this component:
 //  loggedInState
@@ -32,14 +20,6 @@ const Login = ({loggedInState, loggedInStates,setLoggedInState})=>{
       const [emailAddress,setEmailAddress] = React.useState("");// this is how we make a state field and its setter
       const [password, setPassword] = React.useState("");
 
-      // const [isBiometricSupported, setIsBiometricSupported] = React.useState(false);
-      // const [isBiometricEnrolled, setIsBiometricEnrolled] = React.useState(false);
-
-// use effect is a hook - that means a special react function that accesses the 
-// react framework in a way that is unique
-// the useEffect hook lets you make application adjustments after each time the screen updates
-
-// so what is the below example doing after the screen updates?
  useEffect(()=>{
   if(loggedInState==loggedInStates.LOGGED_IN){//if they are logged in...
     navigation.replace('Navigation');//changes screens to the home screen with all the tabs
@@ -53,12 +33,6 @@ const Login = ({loggedInState, loggedInStates,setLoggedInState})=>{
       // it is very similar to a div in HTML (a section of the page)
       <View style={styles.allBody}>
         <Text style={styles.title}>Welcome Back</Text>
-            {/* <Text style={styles.paragraph}> {isBiometricSupported ? 'Your device is compatible with Biometrics' 
-        : 'Your device is not compatible with Biometrics'}
-            </Text>        
-            <Text style={styles.paragraph}> {isBiometricEnrolled ? 'You have saved a fingerprint or face' 
-        : 'You have not saved a fingerprint or face'}
-            </Text>            */}
               <TextInput 
               value={emailAddress}
               onChangeText={setEmailAddress}
@@ -68,47 +42,12 @@ const Login = ({loggedInState, loggedInStates,setLoggedInState})=>{
               placeholder='Email Address'>          
                </TextInput>
 
-            {/* <TouchableOpacity
-             style={styles.bioButton}
-              onPress={async () => {  
-                const biometricAuth = await LocalAuthentication.authenticateAsync({
-                      promptMessage: 'Login with Biometrics',
-                      disableDeviceFallback: true,
-                      cancelLabel:"cancel"
-                    });
-              }}
-            >
-            <Text style={{color:'white'}}>Biometric Authentication</Text>
-            </TouchableOpacity> */}
-
-             {/* <Text style={{fontSize:20, marginVertical:30, textAlign:'center', color:'#818181'}}>Or</Text> */}
 
             <TouchableOpacity
                style={styles.sendButton}
               onPress={async ()=>{
                 console.log(emailAddress+' was entered')
-                
-                //what should the URL be to log in using a username and password below?
-                // how would I find out without Brother Murdock in the room?
-                // const sendTextResponse=await fetch(
-                //   'https://dev.stedi.me/login',
-                //   {
-                //     method:'POST',
-                //     headers:{
-                //      'content-type':'application/text'
-                //    },
-                //     body:JSON.stringify({//this converts a javascript object to a string -- fetch requires a string for the body
-                //       userName:emailAddress,
-                //       password// this is the same as saying password:password - but we have no password variable yet
-                //     })
-                //   }
-                // )
-                // const sendTextResponseData = await sendTextResponse.text();
-                // if(sendTextResponse.status!=200){//invalid phone number, send them to the signup page
-                //   await Alert.alert("Did you type your number correctly? "+phoneNumber);
-                // } else{
-                   setLoggedInState(loggedInStates.LOGGING_IN);
-                // }
+                setLoggedInState(loggedInStates.LOGGING_IN);
               }}
             >
               <Text style={{color:'white'}}>Login</Text>      

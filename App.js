@@ -33,7 +33,9 @@ const App = () =>{
       onBoardedRef.current='true'==getOnBoarded;
       console.log("onBoarded:", getOnBoarded);
       const sessionToken =  await AsyncStorage.getItem('sessionToken');
-        console.log('sessionToken',sessionToken);
+      console.log('sessionToken',sessionToken);
+      
+      if(sessionToken){
         const validateResponse = await fetch('https://dev.stedi.me/validate/'+sessionToken,
         {
           method:'GET',
@@ -48,10 +50,11 @@ const App = () =>{
           await AsyncStorage.setItem('userName',userName);//save user name for later
           setLoggedInState(loggedInStates.LOGGED_IN);
         }
-        console.log('app.js login:',loggedInState)
-        let initialRouteName=onBoardedRef.current !=true ? 'Onboarding' : (loggedInState==loggedInStates.LOGGED_IN ? 'Navigation' : 'Login')
-        console.log('initialRouteName: '+initialRouteName);
-        console.log('onBoardedRef.current:'+onBoardedRef.current);
+      }
+      console.log('app.js login:',loggedInState)
+      let initialRouteName=onBoardedRef.current !=true ? 'Onboarding' : (loggedInState==loggedInStates.LOGGED_IN ? 'Navigation' : 'Login')
+      console.log('initialRouteName: '+initialRouteName);
+      console.log('onBoardedRef.current:'+onBoardedRef.current);
         // if(getOnBoarded != 'true'){
         //     navigation.replace('Onboarding')
         //   }else if (loggedInState==loggedInStates.LOGGED_IN){
@@ -60,26 +63,11 @@ const App = () =>{
         //       console.log('going to login screen:',loggedInState)
         //       // navigation.replace('Login')
         //   }      
-       }
-       getSessionToken();
+    }
+    
+    getSessionToken();
   
   },[]); 
-
-
-  const getInitialRoute = ()=>{
-    let initialRoute = 'Login';
-
-    if(loggedInState==loggedInStates.LOGGED_IN){
-      initialRoute='Navigation';
-    }
-
-    if (onBoarded==false){
-      initialRoute='Onboarding';
-    }
-    console.log('InitialRoute: '+initialRoute);
-
-    return initialRoute;
-  }
 
   return(
     <NavigationContainer>
