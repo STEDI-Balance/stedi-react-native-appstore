@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@expo/ngrok": "^4.1.0",
     "@expo/vector-icons": "^13.0.0",
     "@react-native-async-storage/async-storage": "^1.17.10",
     "@react-navigation/material-bottom-tabs": "^6.0.9",
@@ -34,8 +35,12 @@
     "eject": "expo eject",
     "build-ios": "rm ./package-lock.json ; npx eas-cli build --profile production --platform ios",
     "build-ios-preview": "rm ./package-lock.json ; npx eas-cli build --profile preview --platform ios",
+    add-ryans-files
+    "run-preview": "npx expo start --no-dev --minify",
+    "hello": "helloworld.js"
     "build-android-apk": "rm ./package-lock.son; npx eas-cli build -p android --profile android-apk",
     "run-preview": "npx expo start --no-dev --minify"
+    main
   },
   "private": true
 }
