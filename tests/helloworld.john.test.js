@@ -1,4 +1,4 @@
-import (sendHello,sendName) from "../Week 6/helloworld.js";
+import { sendName, sendHello } from "../utils/helloworld.john";
 import assert from 'assert';
 
 // Manual Test
