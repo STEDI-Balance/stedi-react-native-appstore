@@ -84,46 +84,6 @@ const Login = ({ loggedInState, loggedInStates, setLoggedInState }) => {
           }}>
           <Text style={{ color: 'white' }}>Send</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.sendButton}
-          onPress={async () => {
-            console.log('Hello Glen');
-            Alert.alert('Hello Glen');
-          }}>
-          <Text style={{ color: 'white' }}>Glen's Button</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.sendButton}
-          onPress={async () => {
-            console.log('Hello Enest');
-            Alert.alert('Hello Enest');
-          }}>
-          <Text style={{ color: 'white' }}>Enest's Button</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.sendButton}
-          onPress={async () => {
-            console.log('Hello Okka');
-            Alert.alert('Hello Okka');
-          }}>
-          <Text style={{ color: 'white' }}>Okka's Button</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-          style={styles.sendButton}
-          onPress={async () => {
-            console.log('Hello Arã');
-            Alert.alert('Hello Arã');
-          }}>
-          <Text style={{ color: 'white' }}>Arã's Button</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-          style={styles.sendButton}
-          onPress={async () => {
-            console.log('Hello Henry');
-            Alert.alert('Hello Henry');
-          }}>
-          <Text style={{ color: 'white' }}>Henry's Button</Text>
-          </TouchableOpacity>
       </View>
     );
   } else if (loggedInState == loggedInStates.LOGGING_IN) {
