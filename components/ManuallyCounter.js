@@ -9,7 +9,7 @@ const [newCouter, setNewCounter] = useState(0);
 
 const addStepsManually = async() =>{
     setNewCounter(newCouter +1);
-    props.tallyLatestSteps();
+    props.tallyLatestSteps();//find the definition of tallyLatestSteps
    }
    
 
