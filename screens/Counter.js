@@ -225,7 +225,7 @@ console.log('Error', error)
    if( steps.current.length >= 30) {
     console.log("_unsubscribe");
     setStepCount(0);
-   await savingSteps();
+     await savingSteps();
     _unsubscribe();
     setCompletionCount(completionCount + 1);
     console.log('completationCount:', completionCount);

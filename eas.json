@@ -4,6 +4,11 @@
     "promptToConfigurePushNotifications": false
   },
   "build": {
+    "android-apk": {
+      "android": {
+        "buildType": "apk"
+      }
+    },
     "development": {
       "developmentClient": true,
       "distribution": "internal",
