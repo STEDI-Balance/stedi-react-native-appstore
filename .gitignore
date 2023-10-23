@@ -61,3 +61,8 @@ buck-out/
 # Expo
 .expo/*
 web-build/
+credentials.json
+*.credentials
+*.mobileprovision
+*.p12
+dist
