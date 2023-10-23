@@ -12,9 +12,7 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
-      "ios": {
-        "resourceClass": "m-medium"
-      }
+      "credentialsSource":"local"
     },
     "preview": {
       "distribution": "internal",
