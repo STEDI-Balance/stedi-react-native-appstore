@@ -65,3 +65,4 @@ credentials.json
 *.credentials
 *.mobileprovision
 *.p12
+dist
