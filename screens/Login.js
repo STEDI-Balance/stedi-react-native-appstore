@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";//react is a javascript library for user interfaces
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useNavigation } from '@react-navigation/native';
 
 // with react-navigation I can change screens from one component to another easily
 import { useNavigation } from '@react-navigation/native';//this is another react hook

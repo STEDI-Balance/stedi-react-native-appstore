@@ -35,7 +35,7 @@
     "ios": {
       "bundleIdentifier": "me.stedi",
       "runtimeVersion": {
-        "policy": "appVersion"
+        "policy": "sdkVersion"
       }
     },
     "android": {
