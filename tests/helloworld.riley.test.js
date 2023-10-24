@@ -1,4 +1,4 @@
-import { sayHello, userName } from "../utils/helloworld.cigi" ;
+import { sayHello, userName } from "../utils/helloworld.riley" ;
 import assert from "assert" ;
 
 // Manual testing
