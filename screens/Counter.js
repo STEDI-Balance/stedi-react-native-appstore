@@ -138,6 +138,9 @@ try{
    'suresteps.session.token': token.current
   }
 })
+console.log(`Response status: ${scoreResponse.status}`);
+const scoreText = await scoreResponse.text();
+console.log(`Response text: ${scoreText}` )
 const scoreObject = await scoreResponse.json();
 console.log("score:",scoreObject.score);
 setScore(scoreObject.score);
@@ -182,7 +185,7 @@ const close = () => {
 setCompletionCount(0);
 setCurrentScreen('counter');
 setStepCount(0);
-setCounter(3);
+setCounter(180);
 }
 
 //share 

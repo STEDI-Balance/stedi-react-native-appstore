@@ -12,6 +12,55 @@ const Login = ({ loggedInState, loggedInStates, setLoggedInState }) => {
   const [phoneNumber, setPhoneNumber] = React.useState("");
   const [oneTimePassword, setOneTimePassword] = React.useState("");
 
+  const sendOTP = async () => {
+
+      const loginResponse = await fetch(
+        `https://dev.stedi.me/twofactorlogin/${phoneNumber}`,
+        {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/text'
+          }
+        }
+      )
+    
+    setLoggedInState(loggedInStates.LOGGING_IN);
+  };
+
+  const login = async () => {
+
+
+    const loginResponse = await fetch(
+      'https://dev.stedi.me/twofactorlogin',
+      {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/text'
+        },
+        body: JSON.stringify({
+          phoneNumber,
+          oneTimePassword
+        }
+        )
+      }
+    )
+    if (loginResponse.status == 200) {//200 means the password was valid
+      const sessionToken = await loginResponse.text();
+      const userNameResponse = await fetch('https://dev.stedi.me/validate/' + sessionToken);
+      const userName = await userNameResponse.text();
+      console.log('sessionToken in Login Button', sessionToken);
+      await AsyncStorage.setItem('sessionToken', sessionToken);//local storage
+      await AsyncStorage.setItem('userName', userName);
+      //   setLoggedInState(loggedInStates.LOGGED_IN);
+      navigation.replace('Navigation')
+    } else {
+      console.log('response status', loginResponse.status);
+      Alert.alert('Invalid', 'Invalid Login information')
+      setLoggedInState(NOT_LOGGED_IN);
+    }
+  }
+
+
   useEffect(() => {
     if (loggedInState == loggedInStates.LOGGED_IN) {
       navigation.replace('Navigation');
@@ -34,21 +83,13 @@ const Login = ({ loggedInState, loggedInStates, setLoggedInState }) => {
 
         <TouchableOpacity
           style={styles.sendButton}
-          onPress={async () => {
-            if (parseInt(phoneNumber).length < 10) {
+          onPress={()=>{
+            console.log(`ParseInt output: ${parseInt(phoneNumber).toString().length}`);
+            if (parseInt(phoneNumber).toString().length < 10) {
               Alert.alert("Invalid Phone Number: " + phoneNumber)
             } else {
-              const loginResponse = await fetch(
-                `https://dev.stedi.me/twofactorlogin/${phoneNumber}`,
-                {
-                  method: 'POST',
-                  headers: {
-                    'content-type': 'application/text'
-                  }
-                }
-              )
+             sendOTP();
             }
-            setLoggedInState(loggedInStates.LOGGING_IN);
           }}
         >
           <Text style={{ color: 'white' }}>Send</Text>
@@ -69,43 +110,20 @@ const Login = ({ loggedInState, loggedInStates, setLoggedInState }) => {
           placeholder='One Time Password'
           keyboardType='numeric'>
         </TextInput>
+        {/* <View style={{...styles.allBody,flexDirection:"row"}}> */}
         <TouchableOpacity
           style={styles.loginButton}
-          onPress={async () => {
-
-
-            const loginResponse = await fetch(
-              'https://dev.stedi.me/twofactorlogin',
-              {
-                method: 'POST',
-                headers: {
-                  'content-type': 'application/text'
-                },
-                body: JSON.stringify({
-                  phoneNumber,
-                  oneTimePassword
-                }
-                )
-              }
-            )
-            if (loginResponse.status == 200) {//200 means the password was valid
-              const sessionToken = await loginResponse.text();
-              const userNameResponse = await fetch('https://dev.stedi.me/validate/' + sessionToken);
-              const userName = await userNameResponse.text();
-              console.log('sessionToken in Login Button', sessionToken);
-              await AsyncStorage.setItem('sessionToken', sessionToken);//local storage
-              await AsyncStorage.setItem('userName', userName);
-              //   setLoggedInState(loggedInStates.LOGGED_IN);
-              navigation.replace('Navigation')
-            } else {
-              console.log('response status', loginResponse.status);
-              Alert.alert('Invalid', 'Invalid Login information')
-              setLoggedInState(NOT_LOGGED_IN);
-            }
-          }}
+          onPress={()=>{setLoggedInState(loggedInStates.NOT_LOGGED_IN)}}       
+        >
+          <Text style={{ color: 'white' }}>Go Back</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.loginButton}
+          onPress={login}
         >
           <Text style={{ color: 'white' }}>Login</Text>
         </TouchableOpacity>
+        {/* </View> */}
 
 
       </View>
