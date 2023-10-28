@@ -34,7 +34,16 @@ const Login = ({loggedInState, loggedInStates,setLoggedInState})=>{
 
             <TouchableOpacity
                style={styles.sendButton}
-              onPress={async ()=>{                
+              onPress={async ()=>{ 
+                const loginResponse=await fetch(
+                  `https://dev.stedi.me/twofactorlogin/${phoneNumber}`,
+                  {
+                    method:'POST',
+                    headers:{
+                     'content-type':'application/text'
+                    }                    
+                  }                  
+                )                               
                 setLoggedInState(loggedInStates.LOGGING_IN);
               }}
             >
