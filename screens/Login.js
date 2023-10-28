@@ -34,8 +34,7 @@ const Login = ({loggedInState, loggedInStates,setLoggedInState})=>{
 
             <TouchableOpacity
                style={styles.sendButton}
-              onPress={async ()=>{
-                console.log(emailAddress+' was entered')
+              onPress={async ()=>{                
                 setLoggedInState(loggedInStates.LOGGING_IN);
               }}
             >
