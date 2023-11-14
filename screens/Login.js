@@ -23,8 +23,11 @@ const Login = ({ loggedInState, loggedInStates, setLoggedInState }) => {
           }
         }
       )
-    
-    setLoggedInState(loggedInStates.LOGGING_IN);
+    if(loginResponse.status==200){
+      setLoggedInState(loggedInStates.LOGGING_IN);
+    } else{
+      Alert.alert(`Invalid phone number: `+phoneNumber);
+    }
   };
 
   const login = async () => {
