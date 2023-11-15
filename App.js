@@ -101,6 +101,19 @@ const App = () =>{
 
   return(
     <SafeAreaView style={styles.container}>
+      <View style={styles.heartRateTitleWrapper}>
+        {connectedDevice ? (
+          <>
+            <PulseIndicator />
+            <Text style={styles.heartRateTitleText}>Your Heart Rate Is:</Text>
+            <Text style={styles.heartRateText}>{heartRate} bpm</Text>
+          </>
+        ) : (
+          <Text style={styles.heartRateTitleText}>
+            Please Connect to a Heart Rate Monitor
+          </Text>
+        )}
+      </View>      
       <TouchableOpacity
         onPress={connectedDevice ? disconnectFromDevice : openModal}
         style={styles.ctaButton}
