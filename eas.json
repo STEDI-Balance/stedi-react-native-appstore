@@ -16,14 +16,10 @@
     },
     "preview": {
       "distribution": "internal",
-      "ios": {
-        "resourceClass": "m-medium"
-      }
+      "credentialsSource":"local"
     },
     "production": {
-      "ios": {
-        "resourceClass": "m1-medium"
-      }
+      "credentialsSource":"local"
     }
   },
   "submit": {

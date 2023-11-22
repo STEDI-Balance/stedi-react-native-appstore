@@ -44,6 +44,7 @@
     "eject": "expo eject",
     "build-ios": "rm ./package-lock.json ; npx eas-cli build --profile production --platform ios",
     "build-ios-preview": "rm ./package-lock.json ; npx eas-cli build --profile preview --platform ios",
+    "build-ios-production": "rm ./package-lock.json ; npx eas-cli build --profile production --platform ios",
     "build-android-apk": "rm ./package-lock.son; npx eas-cli build -p android --profile android-apk",
     "run-preview": "npx expo start --no-dev --minify"
   },
