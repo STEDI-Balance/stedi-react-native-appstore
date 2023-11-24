@@ -8,6 +8,7 @@ import Login from './screens/Login';
 import { NavigationContainer } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import useBLE from "./useBLE";
+import PulseIndicator from "./PulseIndicator";
 
 const Stack = createNativeStackNavigator();
 

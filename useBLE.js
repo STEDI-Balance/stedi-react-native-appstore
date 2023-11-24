@@ -12,7 +12,7 @@ import * as ExpoDevice from "expo-device";
 
 import base64 from "react-native-base64";
 
-const HEART_RATE_UUID = "0000180d-0000-1000-8000-00805f9b34fb";
+const HEART_RATE_UUID = "9499BF10-AAC4-1575-9EAE-5A8984106F85";
 const HEART_RATE_CHARACTERISTIC = "1212";
 
 // interface BluetoothLowEnergyApi {
@@ -95,7 +95,7 @@ function useBLE() {
       if (error) {
         console.log(error);
       }
-      if (device && device.name?.includes("Iana-STEDI")) {
+      if (device && device.name?.includes("STEDI")) {
         setAllDevices((prevState) => {
           if (!isDuplicteDevice(prevState, device)) {
             return [...prevState, device];
