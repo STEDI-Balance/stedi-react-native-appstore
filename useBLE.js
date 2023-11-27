@@ -1,4 +1,3 @@
-/* eslint-disable no-bitwise */
 import { useMemo, useState } from "react";
 import { PermissionsAndroid, Platform } from "react-native";
 import {
@@ -15,20 +14,14 @@ import base64 from "react-native-base64";
 const HEART_RATE_UUID = "9499BF10-AAC4-1575-9EAE-5A8984106F85";
 const HEART_RATE_CHARACTERISTIC = "1212";
 
-// interface BluetoothLowEnergyApi {
-//   requestPermissions(): Promise<boolean>;
-//   scanForPeripherals(): void;
-//   connectToDevice: (deviceId: Device) => Promise<void>;
-//   disconnectFromDevice: () => void;
-//   connectedDevice: Device | null;
-//   allDevices: Device[];
-//   heartRate: number;
-// }
+function isDuplicteDevice(devices, nextDevice) {
+  return devices.findIndex((device) => nextDevice.id === device.id) > -1;
+}
 
 function useBLE() {
   const bleManager = useMemo(() => new BleManager(), []);
   const [allDevices, setAllDevices] = useState([]);
-  const [connectedDevice, setConnectedDevice] = useState(null);
+  const [connectedDevice, setConnectedDevice] = useState();
   const [heartRate, setHeartRate] = useState(0);
 
   const requestAndroid31Permissions = async () => {
@@ -125,15 +118,12 @@ function useBLE() {
     }
   };
 
-  const onHeartRateUpdate = (
-    error,
-    characteristic
-  ) => {
+  const onHeartRateUpdate = (error, characteristic) => {
     if (error) {
       console.log(error);
       return -1;
     } else if (!characteristic?.value) {
-      console.log("No Data was recieved");
+      console.log("No Data was received");
       return -1;
     }
 

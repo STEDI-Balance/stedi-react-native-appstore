@@ -49,7 +49,7 @@ const DeviceModal = (props) => {
       return (
         <DeviceModalListItem
           item={item}
-          connectToPeripheral={connectToPeripheral}
+          connectToPeripheral={(connectToPeripheral)}
           closeModal={closeModal}
         />
       );
