@@ -11,7 +11,8 @@ import * as ExpoDevice from "expo-device";
 
 import base64 from "react-native-base64";
 
-const HEART_RATE_UUID = "9499BF10-AAC4-1575-9EAE-5A8984106F85";
+//const HEART_RATE_UUID = "9499BF10-AAC4-1575-9EAE-5A8984106F85";
+const HEART_RATE_UUID = "00000DBA-0000-0E30-0B00-0E0000000000";//Advertisement UUID
 const HEART_RATE_CHARACTERISTIC = "1212";
 
 function isDuplicteDevice(devices, nextDevice) {
