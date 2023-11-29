@@ -81,8 +81,7 @@ function useBLE() {
     }
   };
 
-  const isDuplicteDevice = (devices, nextDevice) =>
-    devices.findIndex((device) => nextDevice.id === device.id) > -1;
+
 
   const scanForPeripherals = () =>
     bleManager.startDeviceScan(null, null, (error, device) => {
@@ -129,17 +128,7 @@ function useBLE() {
     }
 
     const rawData = base64.decode(characteristic.value);
-    let innerHeartRate = -1;
-
-    const firstBitValue = Number(rawData) & 0x01;
-
-    if (firstBitValue === 0) {
-      innerHeartRate = rawData[1].charCodeAt(0);
-    } else {
-      innerHeartRate =
-        Number(rawData[1].charCodeAt(0) << 8) +
-        Number(rawData[2].charCodeAt(2));
-    }
+    let innerHeartRate = rawData.charCodeAt(0);
 
     setHeartRate(innerHeartRate);
   };
