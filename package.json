@@ -36,7 +36,7 @@
     "@babel/core": "^7.20.0"
   },
   "scripts": {
-    "build-ios-apple-developer": "npx eas-cli build --profile development --platform ios",
+    "build-ios-dev-client": "npx eas-cli build --profile development --platform ios",
     "test": "jest",
     "start": "expo start",
     "android": "expo run:android",

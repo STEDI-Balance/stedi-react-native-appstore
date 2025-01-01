@@ -29,11 +29,11 @@
     "icon": "./image/icon-img.png",
     "extra": {
       "eas": {
-        "projectId": "a55488af-19f7-44fc-8b78-0f751a738c26"
+        "projectId": "6c98bbd5-98a2-482c-a01d-04a045165bcb"
       }
     },
     "ios": {
-      "bundleIdentifier": "me.stedi",
+      "bundleIdentifier": "com.scmurdock.stediapp",
       "runtimeVersion": {
         "policy": "sdkVersion"
       }
