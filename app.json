@@ -1,18 +1,29 @@
 {
   "expo": {
     "name": "STEDI App",
-    "plugins":[
+    "plugins": [
       [
         "expo-build-properties",
         {
-          "ios":{
-            "deploymentTarget":"13.0"
+          "ios": {
+            "deploymentTarget": "15.1"
           }
+        }
+      ],
+      [
+        "react-native-ble-plx",
+        {
+          "isBackgroundEnabled": true,
+          "modes": [
+            "peripheral",
+            "central"
+          ],
+          "bluetoothAlwaysPermission": "Allow $(PRODUCT_NAME) to connect to bluetooth devices"
         }
       ]
     ],
-    "splash":{
-      "image":"./image/icon-img.png"
+    "splash": {
+      "image": "./image/icon-img.png"
     },
     "slug": "stedi-app",
     "icon": "./image/icon-img.png",
@@ -22,14 +33,25 @@
       }
     },
     "ios": {
-      "bundleIdentifier": "com.scmurdock.stediapp"
+      "bundleIdentifier": "com.scmurdock.stediapp",
+      "runtimeVersion": {
+        "policy": "sdkVersion"
+      }
     },
     "android": {
       "package": "com.scmurdock.stediapp",
       "adaptiveIcon": {
         "foregroundImage": "./image/icon-img.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "permissions": [
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN",
+        "android.permission.BLUETOOTH_CONNECT"
+      ]
+    },
+    "updates": {
+      "url": "https://u.expo.dev/a55488af-19f7-44fc-8b78-0f751a738c26"
     }
   }
 }

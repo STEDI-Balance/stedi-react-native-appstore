@@ -1,7 +1,9 @@
 {
   "cli": {
     "version": ">= 2.1.0",
-    "promptToConfigurePushNotifications": false
+    "promptToConfigurePushNotifications": false,
+    "appVersionSource":"remote"
+
   },
   "build": {
     "android-apk": {
@@ -11,21 +13,15 @@
     },
     "development": {
       "developmentClient": true,
-      "distribution": "internal",
-      "ios": {
-        "resourceClass": "m-medium"
-      }
+      "distribution": "internal"
     },
     "preview": {
       "distribution": "internal",
-      "ios": {
-        "resourceClass": "m-medium"
-      }
+      "credentialsSource":"local"
     },
     "production": {
-      "ios": {
-        "resourceClass": "m1-medium"
-      }
+      "credentialsSource":"local",
+      "autoIncrement": true
     }
   },
   "submit": {

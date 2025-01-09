@@ -57,7 +57,13 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+ios
 
 # Expo
 .expo/*
 web-build/
+credentials.json
+*.credentials
+*.mobileprovision
+*.p12
+dist

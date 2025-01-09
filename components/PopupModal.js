@@ -4,7 +4,6 @@ import {Alert, Modal, StyleSheet, Text, Pressable, View, Share} from 'react-nati
 const PopupModal = (props) => {
 
   const partnerLink = 'https://dev.stedi.me/timer.html#'+ props.shareToken;
-  console.log(partnerLink)
 
   const [modalVisible, setModalVisible] = useState(true);
 

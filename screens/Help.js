@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity } from 'react-native';
-import { Card} from 'react-native-material-cards';
+import { Card} from '../components/Card.js';
+import { compatibilityFlags } from 'react-native-screens';
 
 
 const Help = ({sessionToken}) =>{
