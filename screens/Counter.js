@@ -3,7 +3,9 @@ import { StyleSheet, Text, TouchableOpacity, View, Image, Share, Linking } from 
 import Speedometer, {
   Background, Arc, Needle, Progress, Marks, Indicator, DangerPath
 } from 'react-native-cool-speedometer';
-import { Card, CardTitle, CardContent } from 'react-native-material-cards'
+import { CustomCard } from '../components/Card.js';
+import { CardTitle } from '../components/CardTitle.js';
+import { CardContent } from '../components/CardContent.js';
 import exerciseImg from '../image/exercise2.png';
 import ProgressBar from 'react-native-progress/Bar';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -274,7 +276,7 @@ export default function Counter(props) {
 
     return (
       <View style={styles.screen}>
-        <Card style={{
+        <CustomCard style={{
           backgroundColor: 'white', borderRadius: 10, marginTop: 10, marginBottom: 10, width: 340, shadowColor: "#000",
           shadowOffset: {
             width: 0,
@@ -310,7 +312,7 @@ export default function Counter(props) {
 
           </CardContent>
           <ProgressBar progress={(stepCount * 0.50 / 30) + (completionCount * 0.50)} width={300} height={25} color={'#A0CE4E'} style={styles.bar} />
-        </Card>
+        </CustomCard>
       </View>
     );
 

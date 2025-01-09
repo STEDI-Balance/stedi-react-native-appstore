@@ -1,7 +1,9 @@
 
 import React, { useEffect, useState } from 'react';
 import { TouchableOpacity, StyleSheet, Text, View, SafeAreaView , Share} from 'react-native';
-import { Card, CardContent} from 'react-native-material-cards';
+import { CustomCard } from '../components/Card.js';
+import { CardTitle } from '../components/CardTitle.js';
+import { CardContent } from '../components/CardContent.js';
 import { Avatar, Title, Caption } from 'react-native-paper';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -37,7 +39,7 @@ const Profile = (props) => {
     }
   return (
     <SafeAreaView style={styles.container}>
-         <Card style={{backgroundColor:'white', borderRadius: 10, marginTop: 10, marginBottom:10 ,width: 340, shadowColor: "#000",
+         <CustomCard style={{backgroundColor:'white', borderRadius: 10, marginTop: 10, marginBottom:10 ,width: 340, shadowColor: "#000",
 shadowOffset: {
 	width: 0,
 	height: 2,
@@ -100,7 +102,7 @@ elevation: 4}}>
         </TouchableOpacity>    
     </View>
     </CardContent>
-    </Card>
+    </CustomCard>
  </SafeAreaView>
   );
 };
