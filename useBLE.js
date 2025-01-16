@@ -11,8 +11,8 @@ import * as ExpoDevice from "expo-device";
 
 import base64 from "react-native-base64";
 
-const HEART_RATE_UUID = "9499BF10-AAC4-1575-9EAE-5A8984106F85";
-const HEART_RATE_CHARACTERISTIC = "1212";
+const UUID = "00000dba-0000-0e30-0b00-0e0000000000";
+const CHARACTERISTIC = "00001212-0000-1000-8000-00805f9b34fb";
 
 function isDuplicteDevice(devices, nextDevice) {
   return devices.findIndex((device) => nextDevice.id === device.id) > -1;
@@ -102,8 +102,8 @@ function useBLE() {
     try {
       const deviceConnection = await bleManager.connectToDevice(device.id);
       setConnectedDevice(deviceConnection);
-      await deviceConnection.discoverAllServicesAndCharacteristics();
-      bleManager.stopDeviceScan();
+      await deviceConnection.discoverAllServicesAndCharacteristics();//this will discover all the data the bluetooth device can transmit
+      bleManager.stopDeviceScan();//this stops looking for types of information, but doesn't close the connection
       startStreamingData(deviceConnection);
     } catch (e) {
       console.log("FAILED TO CONNECT", e);
@@ -125,6 +125,8 @@ function useBLE() {
     } else if (!characteristic?.value) {
       console.log("No Data was received");
       return -1;
+    } else{
+      console.log("Value received "+characteristic.value);
     }
 
     const rawData = base64.decode(characteristic.value);
@@ -146,8 +148,8 @@ function useBLE() {
   const startStreamingData = async (device) => {
     if (device) {
       device.monitorCharacteristicForService(
-        HEART_RATE_UUID,
-        HEART_RATE_CHARACTERISTIC,
+        UUID,
+        CHARACTERISTIC,
         onHeartRateUpdate
       );
     } else {

@@ -26,6 +26,9 @@ const Login = ({ loggedInState, loggedInStates, setLoggedInState }) => {
     if(loginResponse.status==200){
       setLoggedInState(loggedInStates.LOGGING_IN);
     } else{
+      const text = await loginResponse.text();
+      console.log('response status',loginResponse.status);
+      console.log('response text',text);
       Alert.alert(`Invalid phone number: `+phoneNumber);
     }
   };

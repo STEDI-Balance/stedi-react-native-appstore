@@ -100,44 +100,44 @@ const App = () =>{
   },[]); 
 
   return(
-    <SafeAreaView style={styles.container}>
-      <View style={styles.heartRateTitleWrapper}>
-        {connectedDevice ? (
-          <>
-            <Text style={styles.heartRateTitleText}>Your Heart Rate Is:</Text>
-            <Text style={styles.heartRateText}>{heartRate} bpm</Text>
-          </>
-        ) : (
-          <Text style={styles.heartRateTitleText}>
-            Please Connect to a Heart Rate Monitor
-          </Text>
-        )}
-      </View>      
-      <TouchableOpacity
-        onPress={connectedDevice ? disconnectFromDevice : openModal}
-        style={styles.ctaButton}
-      >
-        <Text style={styles.ctaButtonText}>
-          {connectedDevice ? "Disconnect" : "Connect"}
-        </Text>
-      </TouchableOpacity>
-      <DeviceModal
-        closeModal={hideModal}
-        visible={isModalVisible}
-        connectToPeripheral={connectToDevice}
-        devices={allDevices}
-      />      
-    </SafeAreaView>
-    // <NavigationContainer>
-    //   <Stack.Navigator screenOptions={{headerShown:false}}>
-    //     {/* We only show the Onboarding component the first time they run the app*/}
-    //     {onBoarded ? null : (<Stack.Screen name='Onboarding' children={()=><OnboardingScreen setFirstLaunch={setFirstLaunch} loggedInStates={loggedInStates} loggedInState={loggedInState}/>}/>)}
-    //     {/* We  show the login component if they don't have a valid login token already stored in the app*/}        
-    //     <Stack.Screen name='Login' children={()=><Login loggedInStates={loggedInStates} loggedInState={loggedInState} setLoggedInState={setLoggedInState} setSessionToken={setSessionToken}/>}/>
-    //     {/* If they have logged in, and seen the onboarding component, we show them the tabbed navigation component*/}  
-    //     <Stack.Screen name='Navigation' children={()=><Navigation loggedInStates={loggedInStates} loggedInState={loggedInState} setLoggedInState={setLoggedInState} sessionToken={sessionToken}/>}/>
-    //   </Stack.Navigator>
-    // </NavigationContainer>
+    // <SafeAreaView style={styles.container}>
+    //   <View style={styles.heartRateTitleWrapper}>
+    //     {connectedDevice ? (
+    //       <>
+    //         <Text style={styles.heartRateTitleText}>Your Heart Rate Is:</Text>
+    //         <Text style={styles.heartRateText}>{heartRate} bpm</Text>
+    //       </>
+    //     ) : (
+    //       <Text style={styles.heartRateTitleText}>
+    //         Please Connect to a Heart Rate Monitor
+    //       </Text>
+    //     )}
+    //   </View>      
+    //   <TouchableOpacity
+    //     onPress={connectedDevice ? disconnectFromDevice : openModal}
+    //     style={styles.ctaButton}
+    //   >
+    //     <Text style={styles.ctaButtonText}>
+    //       {connectedDevice ? "Disconnect" : "Connect"}
+    //     </Text>
+    //   </TouchableOpacity>
+    //   <DeviceModal
+    //     closeModal={hideModal}
+    //     visible={isModalVisible}
+    //     connectToPeripheral={connectToDevice}
+    //     devices={allDevices}
+    //   />      
+    // </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown:false}}>
+        {/* We only show the Onboarding component the first time they run the app*/}
+        {onBoarded ? null : (<Stack.Screen name='Onboarding' children={()=><OnboardingScreen setFirstLaunch={setFirstLaunch} loggedInStates={loggedInStates} loggedInState={loggedInState}/>}/>)}
+        {/* We  show the login component if they don't have a valid login token already stored in the app*/}        
+        <Stack.Screen name='Login' children={()=><Login loggedInStates={loggedInStates} loggedInState={loggedInState} setLoggedInState={setLoggedInState} setSessionToken={setSessionToken}/>}/>
+        {/* If they have logged in, and seen the onboarding component, we show them the tabbed navigation component*/}  
+        <Stack.Screen name='Navigation' children={()=><Navigation loggedInStates={loggedInStates} loggedInState={loggedInState} setLoggedInState={setLoggedInState} sessionToken={sessionToken}/>}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
